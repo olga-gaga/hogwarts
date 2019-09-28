@@ -1,13 +1,57 @@
-h3 {
-	margin:0.5%;
+#main-page {
+	
 }
-#task-list {
+form {
+	width:100%;
+	display:flex;
+	font-family: "Pristina";
+}
+
+form h2 {
 	font-size: 3em;
+	text-align: center;
+	width:49%;
+	margin:0;
+}
+
+.toggleH2{
+	text-decoration:underline;
+}
+
+table {
+	width: 100%;
+}
+
+
+
+.subject {
+	1font-family: "Pristina";
+	margin:0.5%;
+	text-align: center;
+	1text-decoration:underline;
+}
+
+.subject span {
+	border-bottom: 3px solid #58282fb5;
+}
+
+#task-list {
+	font-size: 2.1em;
 }
 
 .tasks{
 	padding-left: 4%;
+	width:100%;
 }
+
+.tasks .comp-date {
+	width:12%;
+}
+
+.tasks .task-name {
+	width:88%;
+}
+
 .comp-date {
 	1font-size: 1.05em;
 	font-weight:bold;

@@ -1,0 +1,75 @@
+
+
+#main-page {
+	flex-direction: column;
+	padding:4%;
+	padding-top:0;
+
+}
+
+
+
+table {
+	border-collapse: collapse;
+}
+
+.th1-3 {
+	width:20%;
+}
+
+.th2 {
+	width:55%;
+}
+
+
+
+table, th,td {
+	border: 3px solid #0000005e;
+	padding: 0.5%;
+}
+
+caption {
+	text-align: center;
+	font-size:2.5em;
+	font-weight: bold;
+	margin: 1%;
+	margin-top:0;
+	font-family: "Pristina";
+}
+
+th {
+	font-size:1.5em;
+	background-color: #3333334f;
+}
+
+
+tr:hover {
+	background-color: #3333334f;
+}
+
+tbody {
+	font-size: 1.4em;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	body {
+		font-size: 1.6em;
+	}
+	
+	.th1-3 {
+		width:25%;
+	}
+
+	.th2 {
+		width:45%;
+	}
+}

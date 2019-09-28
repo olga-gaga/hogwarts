@@ -1,0 +1,134 @@
+#profile-photo{
+	width:100%;
+	height:auto;
+	border-radius: 10px;
+	border: 7px solid #0000004f;
+}
+
+#img{
+	width:20%;
+	margin:1%
+}
+
+.column{
+	width:73%;
+	margin:1%;
+	margin-left:3%;
+	flex-direction: column;
+}
+
+
+#profile-name {
+	width:100%;
+	font-family: "Pristina";
+	font-size:4.5em;
+	text-align: center;
+	margin:0;
+}
+
+#house-name{
+	width:100%;
+}
+
+#completion-date {
+	background-color:#fff;
+	border: 7px solid #fff;
+	font-size:1.7em;
+	border-radius: 10px;
+	padding:2%;
+	margin-top:0;
+}
+
+#completion-date h3{
+	margin: 0;
+	font-size:1.51em;
+}
+
+#completion-date ul {
+	font-size:1em;
+	margin:0;
+	list-style-type:square;
+}
+#task-list span{
+	font-weight: bold;
+}
+.sections{
+	1color:#06153c;
+	margin: 1%;
+	width: 30%;
+	background-color:#fff;
+	font-size:2.5em;
+	font-style: bold;
+	border-radius: 10px;
+	text-align: center;
+	text-shadow: 2px 2px 2px #6a6538;
+}
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color:black;
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#img {
+		width:42%;
+		order:-1;
+	}
+	
+	#profile-photo {
+		border-width: 10px;
+	}
+
+	#titles {
+		width:45%;
+		font-size:1.5em;
+		margin:5%;
+		align-items:center;
+		flex-direction: column;
+		
+	}
+	
+	#profile-name, #house-name{
+		text-align: left;
+	}
+	
+	#house-name {
+		margin-top:3%;
+		font-size:2.5em;
+	 }
+
+	.column{
+		width:97%;
+		margin:0;
+		flex-direction: column;
+	}
+
+	#completion-date {
+		width: 96%;
+		border-width: 0;
+		margin-top:3%;
+		font-size:1.8em;
+	}
+	#completion-date h3{
+		font-size:1.82em;
+		margin-bottom:0.2%;
+	}
+
+	#completion-date li{
+		font-size:1.7em;
+	}
+
+	.sections{
+		width: 97%;
+		font-size:4em;
+		margin-top: 3.5%;
+	}

@@ -1,0 +1,63 @@
+body{
+	width:100%;
+	margin:0;
+}
+
+#main-page{
+	display:flex;
+	flex-wrap:wrap;
+	padding:2%;
+	justify-content: space-between;
+	font-family: "Monotype Corsiva";
+	margin:6%;
+	padding:4%;
+	border-radius: 10px;
+	height:auto;
+}
+
+#titles {
+	width:100%;
+}
+
+.Gryffindor {
+	color: #58282F;
+	background-color: #ECD596;
+	border: 30px solid #ECD596;
+}
+
+.Ravenclaw {
+	color: #06153c;
+	background-color: #eae9ed;
+	border: 30px solid #eae9ed;
+}
+
+.Slytherin {
+	color: #0d3733;
+	background-color: #eae9ed;
+	border: 30px solid #eae9ed;
+}
+
+.Hufflepuff {
+	color: #000;
+	background-color: #FFD700;
+	border: 30px solid #FFD700;
+}
+
+
+
+#profile-name, #house-name {
+	width:100%;
+	font-family: "Pristina";
+	text-align: center;
+	margin:0;
+
+}
+
+#profile-name {
+	font-size:4.5em;
+}
+
+#house-name{
+	font-size: 2.1em;
+}
+

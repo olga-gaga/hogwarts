@@ -1,0 +1,14 @@
+h3 {
+	margin:0.5%;
+}
+#task-list {
+	font-size: 3em;
+}
+
+.tasks{
+	padding-left: 4%;
+}
+.comp-date {
+	1font-size: 1.05em;
+	font-weight:bold;
+}

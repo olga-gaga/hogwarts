@@ -22,6 +22,10 @@ table {
 	width: 100%;
 }
 
+table,td {
+	border: 5px solid #0000005e;
+	padding: 0.5%;
+}
 
 
 .subject {
@@ -29,6 +33,7 @@ table {
 	margin:0.5%;
 	text-align: center;
 	1text-decoration:underline;
+	margin-bottom:2%;
 }
 
 .subject span {
@@ -36,7 +41,7 @@ table {
 }
 
 #task-list {
-	font-size: 2.1em;
+	font-size: 2.3em;
 }
 
 .tasks{
@@ -46,10 +51,12 @@ table {
 
 .tasks .comp-date {
 	width:12%;
+	text-align: center;
 }
 
 .tasks .task-name {
 	width:88%;
+	padding-left:4%;
 }
 
 .comp-date {

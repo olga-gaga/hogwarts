@@ -57,6 +57,7 @@ let student;
 axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
+  console.log(student);
   document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
   document.body.style.backgroundSize = "cover";
   let mainPage = document.getElementById("main-page");
@@ -65,14 +66,25 @@ axios.post(url, {query: studentQuery})
   titles.innerHTML += ` <h1 id="profile-name"> ${student.firstName} ${student.lastName} </h1> `;
   let taskList = document.getElementById("task-list");
   let compDate;
-  for (let item of student.subjectOnCourses){
+  
+  for (let subjOnCourse of student.subjectOnCourses) {
+    for(let i = 0; i < subjOnCourse.tasks.length; i++){
+    let itemTask = subjOnCourse.tasks[i];
+    if (i === 0) { 
+      taskList.innerHTML +=`<tr><td rowspan="${subjOnCourse.tasks.length}"> ${subjOnCourse.subject.subjectName} </td> <td> ${checkCompDate(itemTask.completionDate)} </td><td> ${itemTask.task} </td> </tr>`
+    } else {
+      taskList.innerHTML +=`<tr><td> ${itemTask.compDate} </td><td> ${itemTask.task} </td> </tr>`}
+      }
+    }
+
+  /*for (let item of student.subjectOnCourses){
     if(item.tasks.length > 0) {
       taskList.innerHTML += `<tr class="subject"><td colspan="2"><span>${item.subject.subjectName} </span></td></tr>`;
       for (let task of item.tasks){
-        taskList.innerHTML += `<tr class="tasks"><td class="comp-date">${checkCompDate(task.completionDate)}</td> <td> ${task.task}</td></tr>`;
+        taskList.innerHTML += `<tr class="tasks"><td class="comp-date">${checkCompDate(task.completionDate)}</td> <td class="task-name"> ${task.task}</td></tr>`;
       }
     }
-  }
+  }*/
  /* for (let item of student.subjectOnCourses){
     if(item.tasks.length > 0) {
       taskList.innerHTML += `<h3 class="subject">${item.subject.subjectName}</h3>`;

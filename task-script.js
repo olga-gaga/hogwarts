@@ -58,6 +58,8 @@ axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
   console.log(student);
+  /*import {styleLoad} from './style-loading.js';
+  styleLoad(student, 0);*/
   document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
   document.body.style.backgroundSize = "cover";
   let mainPage = document.getElementById("main-page");
@@ -68,36 +70,23 @@ axios.post(url, {query: studentQuery})
   let compDate;
   
   for (let subjOnCourse of student.subjectOnCourses) {
-    for(let i = 0; i < subjOnCourse.tasks.length; i++){
-    let itemTask = subjOnCourse.tasks[i];
-    if (i === 0) { 
-      taskList.innerHTML +=`<tr><td rowspan="${subjOnCourse.tasks.length}"> ${subjOnCourse.subject.subjectName} </td> <td> ${checkCompDate(itemTask.completionDate)} </td><td> ${itemTask.task} </td> </tr>`
-    } else {
-      taskList.innerHTML +=`<tr><td> ${itemTask.compDate} </td><td> ${itemTask.task} </td> </tr>`}
+    if(subjOnCourse.tasks.length > 0) {
+      taskList.innerHTML += `<tr class="subject"> <td colspan="2">${subjOnCourse.subject.subjectName}</td></tr> `;
+      for(let itemTask of subjOnCourse.tasks){
+        taskList.innerHTML += `<tr class="tasks"><td class="comp-date"> ${checkCompDate(itemTask.completionDate)} </td> <td> ${itemTask.task} </td> </tr>`;
       }
     }
+  }
+/*
 
-  /*for (let item of student.subjectOnCourses){
-    if(item.tasks.length > 0) {
-      taskList.innerHTML += `<tr class="subject"><td colspan="2"><span>${item.subject.subjectName} </span></td></tr>`;
-      for (let task of item.tasks){
-        taskList.innerHTML += `<tr class="tasks"><td class="comp-date">${checkCompDate(task.completionDate)}</td> <td class="task-name"> ${task.task}</td></tr>`;
-      }
-    }
-  }*/
- /* for (let item of student.subjectOnCourses){
+ for (let item of student.subjectOnCourses){
     if(item.tasks.length > 0) {
       taskList.innerHTML += `<h3 class="subject">${item.subject.subjectName}</h3>`;
       for (let task of item.tasks){
         compDate = new Date(task.completionDate);
-        if (compDate.getMonth()+1 < 10){
-          taskList.innerHTML += `<span class="tasks"> <span class="comp-date">${compDate.getDate()}.0${compDate.getMonth()+1}</span> - ${task.task}</span>`;
-        }
-        else {
-          taskList.innerHTML += `<span class="tasks"><span class="comp-date">${compDate.getDate()}.${compDate.getMonth()+1}</span> - ${task.task}</span>`;
-        }
+        taskList.innerHTML += `<p><span class="tasks"><span class="comp-date">${checkCompDate(task.completionDate)} </span> - ${task.task}</span></p>`;
       }
     }
-  }*/     
+  }   */
 })  
 

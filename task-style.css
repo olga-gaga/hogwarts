@@ -9,9 +9,9 @@ form {
 
 form h2 {
 	font-size: 3em;
-	text-align: center;
 	width:49%;
 	margin:0;
+	text-align:center;
 }
 
 .toggleH2{
@@ -23,25 +23,20 @@ table {
 }
 
 table,td {
-	border: 5px solid #0000005e;
-	padding: 0.5%;
+	padding: 1%;
 }
 
 
 .subject {
-	1font-family: "Pristina";
+	font-size: 1.2em;
 	margin:0.5%;
 	text-align: center;
-	1text-decoration:underline;
 	margin-bottom:2%;
-}
-
-.subject span {
-	border-bottom: 3px solid #58282fb5;
+	font-weight: bold;
 }
 
 #task-list {
-	font-size: 2.3em;
+	font-size: 2.5em;
 }
 
 .tasks{
@@ -60,6 +55,16 @@ table,td {
 }
 
 .comp-date {
-	1font-size: 1.05em;
 	font-weight:bold;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+	form h2 {
+		text-align:left;
+	}
+
 }

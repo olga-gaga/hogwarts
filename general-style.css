@@ -45,9 +45,9 @@ body{
 
 
 
-#profile-name, #house-name {
+#profile-name, #house-name, h1, h2 {
 	width:100%;
-	font-family: "Pristina";
+	font-family: "Pristina", "Monotype Corsiva";
 	text-align: center;
 	margin:0;
 

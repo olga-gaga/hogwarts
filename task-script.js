@@ -1,4 +1,4 @@
-import {styleLoad} from 'style-loading.js';
+import {styleLoad} from './style-loading.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 function getQueryVariable(variable) 
 {

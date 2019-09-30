@@ -1,6 +1,7 @@
 import {styleLoad} from './style-loading.js';
+import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-function getQueryVariable(variable) 
+/*function getQueryVariable(variable) 
 {
    let query = window.location.search.substring(1);
    let vars = query.split("&");
@@ -9,7 +10,7 @@ function getQueryVariable(variable)
        if(pair[0] === variable){return pair[1];}
    }
    return(false);
-}
+}*/
 
 function checkCompDate(date) {
   let compDate = new Date(date);

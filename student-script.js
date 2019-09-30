@@ -46,7 +46,9 @@ axios.post(url, {query: studentQuery})
 .then(response => {
     student = response.data.data.students[0];
     console.log(student);
-    
+    if (!student) {
+      window.location.replace('error404.html');
+    }
     document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
     document.body.style.backgroundSize = "cover";
     let mainPage = document.getElementById("main-page");

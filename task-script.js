@@ -1,3 +1,4 @@
+import {styleLoad} from 'style-loading.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 function getQueryVariable(variable) 
 {
@@ -58,7 +59,7 @@ axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
   console.log(student);
-  import {styleLoad} from 'style-loading.js';
+  
   styleLoad(student, 0);
  /* document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
   document.body.style.backgroundSize = "cover";

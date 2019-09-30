@@ -58,14 +58,15 @@ axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
   console.log(student);
-  /*import {styleLoad} from './style-loading.js';
-  styleLoad(student, 0);*/
-  document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
+  import {styleLoad} from 'style-loading.js';
+  styleLoad(student, 0);
+ /* document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
   document.body.style.backgroundSize = "cover";
   let mainPage = document.getElementById("main-page");
   mainPage.classList.toggle(student.house.houseName);
   let titles = document.getElementById("titles");
   titles.innerHTML += ` <h1 id="profile-name"> ${student.firstName} ${student.lastName} </h1> `;
+  */
   let taskList = document.getElementById("task-list");
   let compDate;
   

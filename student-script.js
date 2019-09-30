@@ -1,5 +1,7 @@
+import {styleLoad} from './style-loading.js';
+import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-function getQueryVariable(variable) 
+/*function getQueryVariable(variable) 
 {
    let query = window.location.search.substring(1);
    let vars = query.split("&");
@@ -8,7 +10,7 @@ function getQueryVariable(variable)
        if(pair[0] === variable){return pair[1];}
    }
    return(false);
-}
+}*/
 
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
@@ -18,15 +20,11 @@ const studentQuery = `
           lastName
           subjectOnCourses {
             tasks{
-                completionDate
-                task
-              }
+              completionDate
+              task
+            }
             subject{
               subjectName
-            }
-            courseBooks{
-                title
-                author
             }
           }
           house {
@@ -38,7 +36,6 @@ const studentQuery = `
           img {
             url
           }
-
        }
       }`;
 let student;
@@ -49,7 +46,8 @@ axios.post(url, {query: studentQuery})
     if (!student) {
       window.location.replace('error404.html');
     }
-    document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
+    styleLoad(student, 0)
+    /*document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
     document.body.style.backgroundSize = "cover";
     let mainPage = document.getElementById("main-page");
     mainPage.classList.toggle(student.house.houseName);
@@ -58,7 +56,7 @@ axios.post(url, {query: studentQuery})
    
      titles.innerHTML += ` <h1 id="profile-name"> ${student.firstName} ${student.lastName} </h1> 
           <h2 id="house-name"> ${student.house.houseName}</h2>`;
-
+    */
       let img = document.getElementById("img");
       img.innerHTML += `<img id="profile-photo" src="${student.img.url}"/> `;
       let a = document.getElementsByClassName("sections");

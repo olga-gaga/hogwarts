@@ -1,5 +1,7 @@
+import {styleLoad} from './style-loading.js';
+import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-function getQueryVariable(variable) 
+/*function getQueryVariable(variable) 
 {
    let query = window.location.search.substring(1);
    let vars = query.split("&");
@@ -8,7 +10,7 @@ function getQueryVariable(variable)
        if(pair[0] === variable){return pair[1];}
    }
    return(false);
-}
+}*/
 
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
@@ -41,8 +43,8 @@ axios.post(url, {query: studentQuery})
 .then(response => {
     student = response.data.data.students[0];
     console.log(student);
-    
-    document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
+    styleLoad(student, 0)
+   /* document.body.style.background = "url(" + student.house.backgroundImg.url + ")";
     document.body.style.backgroundSize = "cover";
     let mainPage = document.getElementById("main-page");
     mainPage.classList.toggle(student.house.houseName);
@@ -50,7 +52,7 @@ axios.post(url, {query: studentQuery})
     let titles = document.getElementById("titles");
    
     titles.innerHTML += ` <h1 id="profile-name"> ${student.firstName} ${student.lastName} </h1> `;
-    
+    */
     let tbody = document.getElementById("add-books");
    for (let subjOnCourse of student.subjectOnCourses) {
      for(let i = 0; i < subjOnCourse.courseBooks.length; i++){

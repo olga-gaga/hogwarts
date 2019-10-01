@@ -127,6 +127,11 @@ a:visited {
 		font-size:1.7em;
 	}
 
+	#completion-date span {
+		text-align: center;
+		color:#000;
+	}
+
 	.sections{
 		width: 97%;
 		font-size:4em;

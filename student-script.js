@@ -11,6 +11,9 @@ const studentQuery = `
             tasks{
               completionDate
               task
+              taskForStudents {
+                completion
+              }
             }
             subject{
               subjectName
@@ -44,14 +47,21 @@ axios.post(url, {query: studentQuery})
     }
     let timeLeft;
     let taskList = document.getElementById("task-list");
+    let noTasks=true;
     for (let item of student.subjectOnCourses){
       for (let task of item.tasks){
-        let compDate = new Date(task.completionDate);
-        timeLeft = Math.ceil((compDate.getTime() - Date.now()) / (1000 * 3600 * 24));
-        if (timeLeft > 0 && timeLeft <= 3) {
-          taskList.innerHTML += `<li> <span>${item.subject.subjectName}</span>: ${task.task}</li>`
+        if (!task.taskForStudents.completion){
+          noTasks = false;
+          let compDate = new Date(task.completionDate);
+          timeLeft = Math.ceil((compDate.getTime() - Date.now()) / (1000 * 3600 * 24));
+          if (timeLeft > 0 && timeLeft <= 3) {
+            taskList.innerHTML += `<li> <span>${item.subject.subjectName}</span>: ${task.task}</li>`
+          }
         }
       }
+    }
+    if (noTasks) {
+      document.getElementById("completion-date").innerHTML += `<span>Заданий, у которых приближается срок сдачи, нет! Поздравляем!</span>`
     }
 })	
 

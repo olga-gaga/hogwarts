@@ -50,7 +50,7 @@ axios.post(url, {query: studentQuery})
     let noTasks=true;
     for (let item of student.subjectOnCourses){
       for (let task of item.tasks){
-        if (!task.taskForStudents.completion){
+        if (task.taskForStudents.completion = true){
           noTasks = false;
           let compDate = new Date(task.completionDate);
           timeLeft = Math.ceil((compDate.getTime() - Date.now()) / (1000 * 3600 * 24));

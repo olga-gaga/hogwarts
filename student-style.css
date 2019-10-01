@@ -52,6 +52,12 @@
 #task-list span{
 	font-weight: bold;
 }
+
+#completion-date span {
+	text-align: center;
+	color:#000;
+}
+
 .sections{
 	1color:#06153c;
 	margin: 1%;
@@ -125,11 +131,6 @@ a:visited {
 
 	#completion-date li{
 		font-size:1.7em;
-	}
-
-	#completion-date span {
-		text-align: center;
-		color:#000;
 	}
 
 	.sections{

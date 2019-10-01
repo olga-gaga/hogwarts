@@ -38,7 +38,7 @@ axios.post(url, {query: studentQuery})
     if (!student) {
       window.location.replace('error404.html');
     }
-    styleLoad(student, 0)
+    styleLoad(student, 1)
     let img = document.getElementById("img");
     img.innerHTML += `<img id="profile-photo" src="${student.img.url}"/> `;
     let a = document.getElementsByClassName("sections");

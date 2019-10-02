@@ -18,23 +18,56 @@ function checkCompDate(date) {
   return strCompDate;
 }
 
+function writeHwList(element, arrTasks, subjectName, compHW){
+  let writeSubj = true
+    for(let i = arrTasks.length - 1; i >= 0; i--) {
+      if( (arrTasks[i].taskForStudents.length > 0) && (arrTasks[i].taskForStudents[0].completion == compHW)) {
+        if (writeSubj) {
+          element.innerHTML += `<tr class="subject"> <td colspan="2">${subjectName}</td></tr> `;
+          writeSubj = false;
+        }
+        element.innerHTML += `<tr class="tasks"><td class="comp-date"> ${checkCompDate(arrTasks[i].completionDate)} </td> <td> ${arrTasks[i].task} </td> </tr>`;
+        arrTasks.splice(i, 1);
+      }
+    }   
+}
+
+let openH2 = document.getElementsByClassName("toggleH2")[0];
+let form = document.forms[0];
+form.onclick = toggleHw;
+
+function toggleHw(e){
+  let selectedH2 = e.target.closest("h2");
+  if (selectedH2 !== openH2 ) {
+    openH2.classList.toggle("toggleH2");
+    selectedH2.classList.toggle("toggleH2");
+    let attributeOpen= openH2.getAttribute("data-toggle");
+    let attributeClose = selectedH2.getAttribute("data-toggle");
+    let openDiv = document.getElementsByClassName(attributeOpen)[0];
+    openDiv.classList.toggle("close");
+    let closeDiv = document.getElementsByClassName(attributeClose)[0];
+    closeDiv.classList.toggle("close");
+    openH2 = selectedH2;
+  }
+}
+
+
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
       {
-        students (where:{lastName:"${lastName}"}){
+        students (where:{lastName: "Granger"}){
           firstName
           lastName
           subjectOnCourses {
-            tasks{
-                completionDate
-                task
-              }
             subject{
-              subjectName
-            }
-            courseBooks{
-                title
-                author
+              subjectName          
+              }
+            tasks {
+              task
+              completionDate
+              taskForStudents{
+                completion
+              }
             }
           }
           house {
@@ -52,15 +85,18 @@ axios.post(url, {query: studentQuery})
   console.log(student);
   styleLoad(student, 0);
   let taskList = document.getElementById("task-list");
+  let compTaskList = document.getElementById("completed-task-list");
   let compDate;
-  
+  let arrTasks;
   for (let subjOnCourse of student.subjectOnCourses) {
-    if(subjOnCourse.tasks.length > 0) {
-      taskList.innerHTML += `<tr class="subject"> <td colspan="2">${subjOnCourse.subject.subjectName}</td></tr> `;
-      for(let itemTask of subjOnCourse.tasks){
-        taskList.innerHTML += `<tr class="tasks"><td class="comp-date"> ${checkCompDate(itemTask.completionDate)} </td> <td> ${itemTask.task} </td> </tr>`;
+    arrTasks = subjOnCourse.tasks;
+    if( arrTasks.length > 0) {
+      writeHwList(taskList, arrTasks, subjOnCourse.subject.subjectName, null);
+      if (arrTasks.length > 0) {
+        writeHwList(compTaskList, arrTasks, subjOnCourse.subject.subjectName, true);
       }
     }
-  }
+  }  
+
 })  
 

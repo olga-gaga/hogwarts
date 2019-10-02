@@ -12,11 +12,21 @@ form h2 {
 	width:49%;
 	margin:0;
 	text-align:center;
+	cursor: pointer;
 }
 
 .toggleH2{
 	text-decoration:underline;
 }
+
+.close {
+	display:none;
+}
+
+.homework, .completed-homework {
+	width: 100%;
+}
+
 
 table {
 	width: 100%;
@@ -35,7 +45,7 @@ table,td {
 	font-weight: bold;
 }
 
-#task-list {
+#task-list, #completed-task-list {
 	font-size: 2.5em;
 }
 

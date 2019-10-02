@@ -21,7 +21,10 @@ table {
 	width:55%;
 }
 
-
+a {
+	text-decoration:none;
+	color:#000;
+}
 
 table, th,td {
 	border: 3px solid #0000005e;

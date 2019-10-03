@@ -89,6 +89,7 @@ table,td {
 	}
 
 	.comp-date {
+		padding-left:0;
 		padding-right:3%;
 	}
 

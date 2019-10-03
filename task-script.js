@@ -55,7 +55,7 @@ function toggleHw(e){
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
       {
-        students (where:{lastName: "Granger"}){
+        students (where:{lastName: "${lastName}"}){
           firstName
           lastName
           subjectOnCourses {

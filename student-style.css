@@ -73,11 +73,11 @@
 a {
 	cursor: pointer;
 	text-decoration: none;
-	color: black;
+	color: inherit;
 }
 
 a:visited {
-	color:black;
+	color:inherit;
 }
 
 

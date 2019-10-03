@@ -22,8 +22,13 @@ table {
 }
 
 a {
-	text-decoration:none;
-	color:#000;
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+
+a:visited {
+	color:inherit;
 }
 
 table, th,td {

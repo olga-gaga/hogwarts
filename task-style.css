@@ -88,4 +88,8 @@ table,td {
 		text-align:left;
 	}
 
+	.comp-date {
+		padding-right:3%;
+	}
+
 }

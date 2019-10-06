@@ -51,8 +51,9 @@ th {
 }
 
 
-tr:hover {
-	background-color: #3333334f;
+td:hover {
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #6a653836;
 }
 
 tbody {

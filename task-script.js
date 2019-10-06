@@ -1,7 +1,6 @@
 import {styleLoad} from './style-loading.js';
 import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-
 function checkCompDate(date) {
   let compDate = new Date(date);
   let day = compDate.getDate();
@@ -18,18 +17,9 @@ function checkCompDate(date) {
   return strCompDate;
 }
 
-function writeHwList(element, arrTasks, subjectName, compHW){
-  let writeSubj = true
-    for(let i = arrTasks.length - 1; i >= 0; i--) {
-      if( (arrTasks[i].taskForStudents.length > 0) && (arrTasks[i].taskForStudents[0].completion == compHW)) {
-        if (writeSubj) {
-          element.innerHTML += `<tr class="subject"> <td colspan="2">${subjectName}</td></tr> `;
-          writeSubj = false;
-        }
-        element.innerHTML += `<tr class="tasks"><td class="comp-date"> ${checkCompDate(arrTasks[i].completionDate)} </td> <td> ${arrTasks[i].task} </td> </tr>`;
-        arrTasks.splice(i, 1);
-      }
-    }   
+function writeHwList(element, item){
+   element.innerHTML +=`<tr> <td class="comp-date"> ${checkCompDate(item.task.completionDate)} </td>  
+   <td class="subject"> ${item.task.subjectOnCourse.subject.subjectName} </td> <td class="task"> ${item.task.task} </td> </tr>`;
 }
 
 let openH2 = document.getElementsByClassName("toggleH2")[0];
@@ -58,24 +48,25 @@ const studentQuery = `
         students (where:{lastName: "${lastName}"}){
           firstName
           lastName
-          subjectOnCourses {
-            subject{
-              subjectName          
-              }
-            tasks {
-              task
-              completionDate
-              taskForStudents{
-                completion
-              }
-            }
-          }
-          house {
+          house{
             houseName
-            backgroundImg {
+            backgroundImg{
               url
             }
           }
+          taskForStudents{
+            completion
+            task{
+              task
+              completionDate
+              subjectOnCourse{
+                subject{
+                  subjectName
+                }
+              }
+            }
+          }
+         
        }
       }`;
 let student;
@@ -83,20 +74,25 @@ axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
   console.log(student);
-  styleLoad(student, 0);
   let taskList = document.getElementById("task-list");
   let compTaskList = document.getElementById("completed-task-list");
-  let compDate;
-  let arrTasks;
-  for (let subjOnCourse of student.subjectOnCourses) {
-    arrTasks = subjOnCourse.tasks;
-    if( arrTasks.length > 0) {
-      writeHwList(taskList, arrTasks, subjOnCourse.subject.subjectName, null);
-      if (arrTasks.length > 0) {
-        writeHwList(compTaskList, arrTasks, subjOnCourse.subject.subjectName, true);
-      }
+  let arrTasks = student.taskForStudents;
+  arrTasks.sort(
+    function (a, b) {
+      let compDateA = new Date(a.task.completionDate);
+      let compDateB = new Date(b.task.completionDate);
+      let time = 1000 * 3600 * 24;
+      return Math.ceil((compDateA.getTime() - Date.now()) / time) - Math.ceil((compDateB.getTime() - Date.now()) / time);;
+    })
+  for(let item of arrTasks){
+    if (item.completion){
+      writeHwList(compTaskList, item);
     }
-  }  
+    else{
+      writeHwList(taskList, item);
+    }
+  }
+  
 
 })  
 

@@ -1,6 +1,4 @@
-#main-page {
-	
-}
+
 
 a {
 	cursor: pointer;
@@ -48,35 +46,21 @@ table,td {
 }
 
 
-.subject {
-	font-size: 1.2em;
-	margin:0.5%;
-	text-align: center;
-	margin-bottom:2%;
-	font-weight: bold;
-}
-
 #task-list, #completed-task-list {
 	font-size: 2.5em;
 }
 
-.tasks{
-	padding-left: 4%;
-	width:100%;
-}
-
-.tasks .comp-date {
-	width:12%;
-	text-align: center;
-}
-
-.tasks .task-name {
-	width:88%;
-	padding-left:4%;
-}
-
 .comp-date {
 	font-weight:bold;
+	width:10%;
+}
+
+.subject {
+	width:29%;
+}
+
+.task {
+	width:49%;
 }
 
 @media only screen 
@@ -91,6 +75,15 @@ table,td {
 	.comp-date {
 		padding-left:0;
 		padding-right:3%;
+		width:8%;
 	}
 
+	.subject {
+		width:29%;
+	}
+
+	.task {
+		width:60%;
+	}
+	
 }

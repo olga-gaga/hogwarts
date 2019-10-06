@@ -8,16 +8,16 @@ const studentQuery = `
         students (where:{lastName:"${lastName}"}){
           firstName
           lastName
-          subjectOnCourses {
-            tasks{
-              completionDate
+          taskForStudents{
+            completion
+            task{
               task
-              taskForStudents {
-                completion
+              completionDate
+              subjectOnCourse{
+                subject{
+                  subjectName
+                }
               }
-            }
-            subject{
-              subjectName
             }
           }
           house {
@@ -49,16 +49,22 @@ axios.post(url, {query: studentQuery})
     let timeLeft;
     let taskList = document.getElementById("task-list");
     let noTasks=true;
-    for (let item of student.subjectOnCourses){
-      for (let task of item.tasks){
-        if (!task.taskForStudents[0].completion){
+    let arrTasks = student.taskForStudents;
+    arrTasks.sort(
+      function (a, b) {
+        let compDateA = new Date(a.task.completionDate);
+        let compDateB = new Date(b.task.completionDate);
+        let time = 1000 * 3600 * 24;
+        return Math.ceil((compDateA.getTime() - Date.now()) / time) - Math.ceil((compDateB.getTime() - Date.now()) / time);;
+    })
+    for (let item of arrTasks){
+        if (item.completion !== true){
           noTasks = false;
           let compDate = new Date(task.completionDate);
           timeLeft = Math.ceil((compDate.getTime() - Date.now()) / (1000 * 3600 * 24));
           if (timeLeft > 0 && timeLeft <= 3) {
-            taskList.innerHTML += `<li> <span>${item.subject.subjectName}</span>: ${task.task}</li>`
+            taskList.innerHTML += `<li> <span>${item.task.subjectOnCourse.subject.subjectName}</span>: ${item.task.task}</li>`
           }
-        }
       }
     }
     if (noTasks) {

@@ -60,7 +60,7 @@ axios.post(url, {query: studentQuery})
     for (let item of arrTasks){
         if (item.completion !== true){
           noTasks = false;
-          let compDate = new Date(task.completionDate);
+          let compDate = new Date( item.task.completionDate);
           timeLeft = Math.ceil((compDate.getTime() - Date.now()) / (1000 * 3600 * 24));
           if ( timeLeft <= 3) {
             taskList.innerHTML += `<li> <span>${item.task.subjectOnCourse.subject.subjectName}</span>: ${item.task.task}</li>`

@@ -33,7 +33,7 @@ axios.post(url, {query: studentQuery})
 .then(response => {
     student = response.data.data.students[0];
     console.log(student);
-    styleLoad(student, 0);    
+    styleLoad(student, 1, 2);    
     let tbody = document.getElementById("add-books");
    for (let subjOnCourse of student.subjectOnCourses) {
      for(let i = 0; i < subjOnCourse.courseBooks.length; i++){

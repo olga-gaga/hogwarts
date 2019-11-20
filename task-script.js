@@ -73,7 +73,7 @@ let student;
 axios.post(url, {query: studentQuery})
 .then(response => {
   student = response.data.data.students[0];
-  styleLoad(student, 0);
+  styleLoad(student, 1, 2);
   let taskList = document.getElementById("task-list");
   let compTaskList = document.getElementById("completed-task-list");
   let arrTasks = student.taskForStudents;

@@ -10,10 +10,10 @@ export function styleLoad(student, studentBool, houseBool) {
   	if(houseBool) {
   		switch (houseBool) {
   			case 1: 
-  				titles.innerHTML += `<h1 id="house-name"><a href="index.html?st="${student.houseName}"> ${student.house.houseName}</a> </h1>`;
+  				titles.innerHTML += `<h1 id="house-name"><a href="index.html?st="${student.lastName}"> ${student.house.houseName}</a> </h1>`;
   				break;
   			case 2:
-  				titles.innerHTML += `<h1 id="house-name"><a href="index.html?st="${student.houseName}"> ${student.house.houseName}</a> </h1>`;
+  				titles.innerHTML += `<h1 id="house-name"><a href="index.html?st="${student.lastName}"> ${student.house.houseName}</a> </h1>`;
   		}
   	}
 }

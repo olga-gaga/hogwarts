@@ -61,3 +61,12 @@ body{
 	font-size: 2.1em;
 }
 
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+
+a:visited {
+	color:inherit;
+}

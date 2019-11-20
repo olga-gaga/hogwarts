@@ -74,15 +74,6 @@
 	text-shadow: 2px 2px 2px #6a6538;
 }
 
-a {
-	cursor: pointer;
-	text-decoration: none;
-	color: inherit;
-}
-
-a:visited {
-	color:inherit;
-}
 
 
 @media only screen 

@@ -1,3 +1,10 @@
 h1, h2{
 	font-size: 2em;
 }
+
+#TheHouseCup {
+	width:45%;
+	margin:1%;
+	border-radius: 10px;
+	background-color: #fff;
+}

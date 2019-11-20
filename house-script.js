@@ -40,7 +40,7 @@ axios.post(url, {query: studentQuery})
     if (!student) {
       window.location.replace('error404.html');
     }
-    styleLoad(student, 1);
+    styleLoad(student,0, 1);
     console.log(rating);
 
 });	

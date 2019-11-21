@@ -1,13 +1,9 @@
-
-
 #main-page {
 	flex-direction: column;
 	padding:4%;
 	padding-top:0;
 
 }
-
-
 
 table {
 	border-collapse: collapse;

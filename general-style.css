@@ -52,15 +52,12 @@ h1, h2 {
 	margin:0;
 
 }
+
 h1 {
 	font-size:4.5em;
 }
 
-#profile-name {
-	font-size:4.5em;
-}
-
-#house-name{
+h2{
 	font-size: 2.1em;
 }
 

@@ -1,0 +1,56 @@
+h3 {
+	width: 100%;
+	text-align: center;
+	font-size:2.3em;
+	margin:0;
+	margin-top: 1%;
+}
+
+
+.taskList {
+	width:100%;
+}
+
+table {
+	width: 100%;
+	font-size:0.9em;
+}
+
+table,td {
+	padding: 1%;
+}
+
+#tasks {
+	font-size: 2.5em;
+	width:50%;
+}
+
+.comp-date {
+	font-weight:bold;
+	width:15%;
+}
+
+.task {
+	width:60%;
+}
+
+.button {
+	width: 12%;
+}
+
+td a {
+	width: 100%;
+	border-radius:10px;
+	background-color: #714a29;
+}
+td a:hover {
+	background-color: #5e3e22;
+	font-width: bold;
+}
+
+.taskList a {
+	font-family: "Pristina";
+	font-size:2em;
+	margin-left:2%;
+}
+

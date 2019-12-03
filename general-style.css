@@ -6,7 +6,6 @@ body{
 #main-page{
 	display:flex;
 	flex-wrap:wrap;
-	padding:2%;
 	justify-content: space-between;
 	font-family: "Monotype Corsiva";
 	margin:6%;
@@ -17,6 +16,10 @@ body{
 
 #titles {
 	width:100%;
+}
+
+.GreatHall{
+	background: url("https://www.desktopbackground.org/download/2048x1152/2015/04/30/940829_pomona-sprout-harry-potter-wiki-wikia_4000x1632_h.png");
 }
 
 .Gryffindor {
@@ -43,6 +46,11 @@ body{
 	border: 30px solid #FFD700;
 }
 
+.Hogwarts{
+	color: #000;
+	background-color: #e0c774;
+	border: 30px solid #e0c774;
+}
 
 
 h1, h2 {
@@ -58,7 +66,7 @@ h1 {
 }
 
 h2{
-	font-size: 2.1em;
+	font-size: 2.3em;
 }
 
 a {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+		<link rel="stylesheet" href="teacher-general-style.css"/>
+		<link rel="stylesheet" href="teacher-subjOnCourse-style.css"/>
+
+	</head>
+	<body>
+		<div id="main-page" class="teacher">
+			<div id="titles">
+				<h1 id="profile-name"> </h1>
+				<h2 id="position"> teacher of <a>Hogwarts</a></h2>
+				<h3 id="subject"> </h3>
+			</div>
+			<div class="taskList">
+				<a href="changeTaskList.html?add" target="_blank">Add task for course</a>
+				<table>
+					<tbody id="tasks">
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="module" src="teacher-subjOnCourse.js"></script>
+	</body>
+</html>

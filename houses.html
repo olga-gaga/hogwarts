@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title> </title>
+		<meta charset = "utf-8"/>
+		<link rel="stylesheet" href="general-style.css"/>
+		<link rel="stylesheet" href="all-houses-style.css"/>
+
+	</head>
+	<body class="GreatHall">
+		<div id="main-page" class="Hogwarts">
+			<div id="titles"> 
+				<h1><a href="index.html">Hogwarts School of Witchcraft and Wizardry </a></h1>
+			</div>
+			<form> 
+				<h2 data-toggle="TheHouseCup" class="toggleH2">The House Cup</h2>
+				<h2 data-toggle="QuidditchTournament" class="">Quidditch tournament</h2>
+			</form>
+			
+			<div class="TheHouseCup">
+				<div class="flags">
+					<a href="house.html?h=Ravenclaw" target="_blank"> <img src="ravenclaw.png"/></a>
+					<a href="house.html?h=Gryffindor" target="_blank"><img src="gryffindor.png"/></a>
+					<a href="house.html?h=Slytherin" target="_blank"><img src="slytherin.png"/></a>
+					<a href="house.html?h=Hufflepuff" target="_blank"><img src="hufflepuff.png"/></a>
+				</div>
+				
+				<br/>
+				<div id="TheHouseCupRating" >
+						<canvas id="canvas"> </canvas>
+				</div>
+				<div>
+					
+				</div>
+			</div>
+	
+			<div class="QuidditchTournament close">
+				<table id="books"> 
+					<!--<thead> 
+						<!--<caption> Course books </caption>
+						<tr> 
+								<th class="house2 "></th>
+								<th class="house2 gryffindor">Gryffindor</th>
+								<th class="house2 slytherin">Slytherin</th>
+								<th class="house2 ravenclaw">Ravenclaw</th>
+								<th class="house2 hufflepuff">Hufflepuff</th>
+						</tr>
+					</thead>-->
+					<tbody id="add-books">
+						<tr> 
+								<td class="house2 "></tdtd>
+								<td class="house2 gryffindor">Gryffindor  </td>
+								<td class="house2 slytherin">Slytherin  </td>
+								<td class="house2 ravenclaw">Ravenclaw  </td>
+								<td class="house2 hufflepuff">Hufflepuff  </td>
+						</tr>
+						<tr> <td class="house1 gryffindor">Gryffindor</td> <td class="hatching"> </td> <td> </td> <td> </td> <td> </td> </tr>
+						<tr> <td class="house1 slytherin">Slytherin</td> <td> </td> <td class="hatching"> </td> <td> </td> <td> </td> </tr>
+						<tr> <td class="house1 ravenclaw">Ravenclaw</td> <td> </td> <td> </td> <td class="hatching"> </td> <td> </td> </tr>
+						<tr> <td class="house1 hufflepuff">Hufflepuff</td> <td> </td> <td> </td> <td> </td> <td class="hatching"> </td> </tr> 
+							
+					</tbody>
+				</table>				
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>	
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="module" src="all-houses-script.js"></script> 
+
+</html>

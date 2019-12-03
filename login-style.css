@@ -1,0 +1,71 @@
+body{
+	width:100%;
+	margin:0;
+	font-family: "Monotype Corsiva";
+	font-size: 1.5em;
+}
+
+.close {
+	display:none;
+}
+
+.wizard {
+	background:url("owl.jpg");
+	height:auto;
+	background-size: 100%;
+}
+
+.muggle {
+	width:100%;
+	height:auto;
+	background:url("руины100.jpg");
+	background-size: 100%;
+	
+}
+
+.signIn {
+	background-color:#b7a28ca3;
+	width: 20%;
+	margin-top:3%;
+	margin-left:77%;
+	border-radius: 10px; 
+
+}
+
+img{
+	width: 97%;
+}
+
+input {
+	border: 1px solid #d1d5da;
+}
+
+.signIn label, .signIn input, .signIn button {
+	width:95%;
+	margin: 2%;
+	min-height: 7%;
+    padding: 1%;
+    font-size: 1.5em;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#error {
+	color: red;
+	font-size:inherit;
+	margin:0;
+	text-align: center;
+}
+
+.signIn button {
+	font-family: inherit;
+	font-weight:bold;
+	font-size:1.9em;
+	background-color:#a8947fd9;
+	box-shadow: 0 0 7px 0 #796c59;
+	border: 1px solid #cab392c4;
+}
+.signIn button:hover{
+	box-shadow: 0 0 7px 0 #665b4a;
+	background-color:#9a8875d9;
+}

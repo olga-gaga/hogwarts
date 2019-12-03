@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title id="keepOut">Danger! Keep out! </title>
+		<meta charset = "utf-8"/>
+		<link rel="stylesheet" href="general-style.css"/>
+		<link rel="stylesheet" href="login-style.css"/>
+		<script src="https://github.com/sdkcarlos/artyom.js/blob/master/build/artyom.window.min.js"> </script>
+		<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>-->
+	</head>
+	<body class="wizard muggle">
+		<!--<input type="submit" id="alohomora" value="Alohomora"/>-->
+		<div class="signIn close">
+			<img src="label.png"/>
+			<form>
+				<label for="login">Your name</label>
+				<input type="text" id="login" />
+				<label for="password">Your password</label>
+				<input type="password" id="password"/>
+				<p id="error" class="close">Неверный логин или пароль. Повторите попытку.</p>
+				<button type="submit">Sign in</button>
+				
+			</form>
+		</div>
+	</body>
+		<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+		<script src="login-script.js"></script>
+
+</html>

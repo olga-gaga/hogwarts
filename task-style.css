@@ -24,6 +24,11 @@ form h2 {
 	cursor: pointer;
 }
 
+form h2:hover {
+	border-radius:10px;
+	background-color: #3333334f;
+}
+
 .toggleH2{
 	text-decoration:underline;
 }

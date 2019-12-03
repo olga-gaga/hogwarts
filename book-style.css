@@ -1,9 +1,13 @@
+
+
 #main-page {
 	flex-direction: column;
 	padding:4%;
 	padding-top:0;
 
 }
+
+
 
 table {
 	border-collapse: collapse;
@@ -48,8 +52,7 @@ th {
 
 
 td:hover {
-	font-weight: bold;
-	text-shadow: 2px 2px 2px #6a653836;
+	font-weight:bold;
 }
 
 tbody {

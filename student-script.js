@@ -1,6 +1,15 @@
 import {styleLoad} from './style-loading.js';
 import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
+const artyom = new Artyom();
+
+artyom.initialize({
+    continuous:true,
+    lang:"ru-RU",
+    obeyKeyword: "слушай",
+    listen:true,
+    debug:true
+});
 
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
@@ -39,7 +48,8 @@ axios.post(url, {query: studentQuery})
     if (!student) {
       window.location.replace('error404.html');
     }
-    styleLoad(student, 1, 2)
+    styleLoad(student, 1, 1);
+    document.getElementsByTagName("title")[0].textContent = document.getElementById("profile-name").textContent + " - " + document.getElementById("position").textContent;
     let img = document.getElementById("img");
     img.innerHTML += `<img id="profile-photo" src="${student.img.url}"/> `;
     let a = document.getElementsByClassName("sections");
@@ -72,4 +82,12 @@ axios.post(url, {query: studentQuery})
     }
 })	
 
+let commandHello = {
+    indexes:["привет"], // These spoken words will trigger the execution of the command
+    action:function(){ // Action to be executed when a index match with spoken word
+        console.log("Hey buddy ! How are you today?");
+        artyom.say("Hey buddy ! How are you today?");
+    }
+};
 
+artyom.addCommands(commandHello); // Add the command with addCommands method. Now

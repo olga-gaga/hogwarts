@@ -1,6 +1,123 @@
-#TheHouseCup {
+#main-page{
+	display: flex;
+}
+
+#img{
+	width:25%;
+	margin:1%
+}
+
+#founder-photo{
+	width:100%;
+	height:auto;
+	border-radius:10px;
+}
+
+#information {
+	display: flex;
+	flex-direction: column;
+	1font-family: cursive;
+	text-align: left;
+	width:65%;
+	1background-color:#fff;
+	1border: 7pfx solid #fff;
+	font-size:1.7em;
+	border-radius: 10px;
+	padding:2%;
+	margin:1%;
+	height:auto;
+}
+
+#information div {
+	width: 100%;
+	flex-direction: row;
+}
+
+#information h2, {
+	display:inline-block;
+	width:fit-content;
+	font-weight: 0.5em;
+	text-align: left;
+	margin: 0;
+
+}
+
+#houseName, #founder, #element, #animal, #colour{
+	font-weight:bold; 
+	font-size: 1em;
+	text-align: left;
+	display:inline-block;
+	width:fit-content;
+	margin:1%;
+}
+
+#information span {
+	1font-family: "Monotype Corsiva";
+	font-weight: normal;
+}
+
+form {
+	width:100%;
+	display:flex;
+	font-family: "Pristina";
+}
+
+form h2 {
+	font-size: 1.5em;
+	width:49%;
+	margin:0;
+	text-align:center;
+	cursor: pointer;
+}
+
+form h2:hover {
+	border-radius:10px;
+	background-color: #3333334f;
+}
+
+.toggleH2 {
+	text-decoration:underline;
+}
+
+.TheHouseCup {
+	display:flex;
+	flex-wrap:wrap;
+	padding:2%;
+	justify-content: space-between;
+	width:100%;
+}
+
+#TheHouseCupRating {
 	width:45%;
+	margin-bottom: 2%;
+}
+
+#canvas, #changesList {
+	width:100%;
 	margin:1%;
 	border-radius: 10px;
 	background-color: #fff;
+}
+
+#TheHouseCupChanges {
+	width:45%;
+
+}
+
+#changesList {
+	height: auto;
+	padding-top, padding-bottom: 2%;
+}
+
+#TheHouseCupChanges li {
+	font-size: 1.7em;
+	width:95%;
+}
+
+.points {
+	font-weight:bold;
+}
+
+.close {
+	display:none;
 }

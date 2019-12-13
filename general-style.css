@@ -19,7 +19,7 @@ body{
 }
 
 .GreatHall{
-	background: url("https://www.desktopbackground.org/download/2048x1152/2015/04/30/940829_pomona-sprout-harry-potter-wiki-wikia_4000x1632_h.png");
+	background: url("newGreatHall.png");
 }
 
 .Gryffindor {
@@ -77,4 +77,8 @@ a {
 
 a:visited {
 	color:inherit;
+}
+
+.close {
+	display:none;
 }

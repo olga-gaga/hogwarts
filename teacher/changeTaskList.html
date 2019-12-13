@@ -4,33 +4,44 @@
 		<title></title>
 		<meta charset = "utf-8"/>
 		<link rel="stylesheet" href="teacher-general-style.css"/>
-		<link rel="stylesheet" href=""/>
+		<link rel="stylesheet" href="change-task-list-style.css"/>
 
 	</head>
 	<body>
 		<div id="main-page" class="teacher">
 			<div id="titles">
-				<h1 id="profile-name"> </h1>
-				<h2 id="position"> teacher of <a>Hogwarts</a></h2>
+				<h1><a id="profile-name" href="student.html"> </a></h1>
+				<h2 id="position"> teacher of <a href="index.html">Hogwarts</a></h2>
 				<h3 id="subject"> </h3>
 			</div>
-			<form class>
-				<div class="edit close">
-					<input id="date" type="date"/>
-					<input id="task" type="text"/>
+			<form class="">
+				<div class="add">
+					<label for="dateEl">Completion date</label>
+					<input id="dateElAdd" class="date" type="date"/>
+					<label for="dateElAdd">Task</label>
+					<input id="taskEladd" class="task" type="text"/>
+					<button>Add</button>
 				</div>
-				<div class="delete">
+				<div class="edit close">
+					<div><label for="dateElEdit">Completion date</label>
+					<input id="dateElEdit" class="date" type="date"/> </div>
+					<label for="taskElEdit">Task</label>
+					<input id="taskElEdit" class="task" type="text"/>
+					<button id="editSub">Edit</button>
+				</div>
+				<div class="delete close">
 					<table> 
 						<tbody>
 							<td class="comp-date"> </td> 
 							<td class="task"> </td>
+							<button>Delete</button>
 							
 						</tbody>
 				</div>
-				<input id="submit" type="submit"/>
+				<!--<input id="submit" type="submit"/>-->
 			</form>
 		</div>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="module" src="teacher-subjOnCourse.js"></script>
+		<script type="module" src="teacher-change-taskList.js"></script>
 	</body>
 </html>

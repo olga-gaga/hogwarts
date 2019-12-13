@@ -1,0 +1,45 @@
+table {
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+tbody {
+	width:100%;	
+}
+
+.img {
+	width: 15%;
+}
+
+img{
+	width:100%;
+	border-radius: 10px;
+	border: 7px solid #0000004f;
+}
+
+.name {
+	padding-left:2%;
+}
+
+form {
+	width:100%;
+	display:flex;
+	font-family: "Pristina";
+}
+
+form h2 {
+	font-size: 3em;
+	width:23%;
+	margin:0;
+	text-align:center;
+	cursor: pointer;
+}
+
+form h2:hover {
+	border-radius:10px;
+	background-color: #3333334f;
+}
+
+.toggleH2{
+	text-decoration:underline;
+}

@@ -23,7 +23,6 @@ axios.post(url, {query: teacherQuery})
       window.location.replace('error404.html');
     }
     let profileName = document.getElementById("profile-name");
-    //let position = document.getElementById("position");
     profileName.innerHTML += teacher.firstName+ " " + teacher.lastName;
     document.getElementsByTagName("title")[0].textContent = profileName.textContent + " - " + document.getElementById("position").textContent;
     let img = document.getElementById("img").innerHTML += `<img id="profile-photo" src="${teacher.img.url}"/> `;
@@ -32,13 +31,3 @@ axios.post(url, {query: teacherQuery})
         item.href += `?t=${lastName}`;
     }
 })	
-
-/*let commandHello = {
-    indexes:["привет"], // These spoken words will trigger the execution of the command
-    action:function(){ // Action to be executed when a index match with spoken word
-        console.log("Hey buddy ! How are you today?");
-        artyom.say("Hey buddy ! How are you today?");
-    }
-};
-
-artyom.addCommands(commandHello); // Add the command with addCommands method. Now*/

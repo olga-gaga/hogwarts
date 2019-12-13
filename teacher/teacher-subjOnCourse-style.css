@@ -9,25 +9,24 @@ h3 {
 
 .taskList {
 	width:100%;
+	font-size:2em;
+}
+
+.taskList>a:hover {
+	font-weight: bold;
 }
 
 table {
 	width: 100%;
-	font-size:0.9em;
-}
-
-table,td {
-	padding: 1%;
 }
 
 #tasks {
-	font-size: 2.5em;
 	width:50%;
 }
 
 .comp-date {
 	font-weight:bold;
-	width:15%;
+	width:10%;
 }
 
 .task {
@@ -35,22 +34,22 @@ table,td {
 }
 
 .button {
-	width: 12%;
+	width: 8%;
+	text-align:center;
+	border-radius:10px;
+	background-color: #7e532e;
 }
 
 td a {
 	width: 100%;
-	border-radius:10px;
-	background-color: #714a29;
 }
-td a:hover {
-	background-color: #5e3e22;
+.button:hover {
+	background-color: #774e2b;
 	font-width: bold;
 }
 
 .taskList a {
 	font-family: "Pristina";
-	font-size:2em;
-	margin-left:2%;
+	font-size:1.1em;
 }
 

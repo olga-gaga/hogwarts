@@ -33,10 +33,6 @@ form h2:hover {
 	text-decoration:underline;
 }
 
-.close {
-	display:none;
-}
-
 .homework, .completed-homework {
 	width: 100%;
 }

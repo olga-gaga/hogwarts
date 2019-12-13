@@ -17,17 +17,38 @@ export function styleLoad(student, studentBool, houseBool) {
   }
 }
 
-export function toggle(e, element){
-  let selectedH2 = e.target.closest("element");
-  if (selectedH2 !== element ) {
-    element.classList.toggle("toggleH2");
-    selectedH2.classList.toggle("toggleH2");
-    let attributeOpen= element.getAttribute("data-toggle");
-    let attributeClose = selectedH2.getAttribute("data-toggle");
+export function createTable (id, array) {
+  let tbody = document.getElementById(id);
+     for (let i = 0; i < array.length ; i += 2) {
+            if( i + 1 === array.length) {
+              tbody.innerHTML +=`<tr>
+            <td class="img"><img src="${array[i].img.url}"/> </td>
+            <td class="name"> ${array[i].firstName} ${array[i].lastName}</td>`;
+            }
+            else {
+              tbody.innerHTML +=`<tr>
+            <td class="img"><img src="${array[i].img.url}"/> </td>
+            <td class="name"> ${array[i].firstName} ${array[i].lastName}</td>
+            <td class="img"><img src="${array[i+1].img.url}"/> </td>
+            <td class="name"> ${array[i+1].firstName} ${array[i+1].lastName}</td> 
+            </tr>`;
+          }            
+    }
+}
+
+export function toggleH2(e, openElement){
+  let selectedEl = e.target.closest("h2");
+  if (selectedEl !== openElement ) {
+    openElement.classList.toggle("toggleH2");
+    selectedEl.classList.toggle("toggleH2");
+    let attributeOpen= openElement.getAttribute("data-toggle");
+    let attributeClose = selectedEl.getAttribute("data-toggle");
     let openDiv = document.getElementsByClassName(attributeOpen)[0];
     openDiv.classList.toggle("close");
     let closeDiv = document.getElementsByClassName(attributeClose)[0];
     closeDiv.classList.toggle("close");
-    element = selectedH2;
+    openElement = selectedEl;
   }
+  return openElement;
 }
+

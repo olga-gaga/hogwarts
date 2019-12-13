@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title> </title>
+		<meta charset = "utf-8"/>
+		<link rel="stylesheet" href="general-style.css"/>
+		<link rel="stylesheet" href="lists.css"/>
+
+	</head>
+	<body class="GreatHall">
+		<div id="main-page" class="Hogwarts">
+			<div id="titles">
+				<h1>Students of <a href="index.html">Hogwarts School </a></h1>
+			</div>
+			<form> 
+				<h2 data-toggle="gryffindor" class="toggleH2">Gryffindor</h2>
+				<h2 data-toggle="ravenclaw" class="">Ravenclaw</h2>
+				<h2 data-toggle="slytherin" class="">Slytherin</h2>
+				<h2 data-toggle="hufflepuff" class="">Hufflepuff</h2>
+			</form>
+			<div class= "gryffindor">
+				<table>
+					<tbody id="gryffindor-st"> 
+						
+					</tbody>
+				</table>
+			</div>
+
+			<div class= "ravenclaw close">
+				<table>
+					<tbody id="ravenclaw-st"> 
+						
+					</tbody>
+				</table>
+			</div>
+
+			<div class= "slytherin close">
+				<table>
+					<tbody id="slytherin-st"> 
+						
+					</tbody>
+				</table>
+			</div>
+
+			<div class= "hufflepuff close">
+				<table>
+					<tbody id="hufflepuff-st"> 
+						
+					</tbody>
+				</table>
+			</div>
+				
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>	
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="module" src="students-list-script.js"></script> 
+
+</html>

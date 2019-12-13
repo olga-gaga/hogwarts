@@ -1,4 +1,5 @@
 import {styleLoad} from './teacher-style-loading.js';
+import {checkCompDate} from './teacher-style-loading.js';
 import {getQueryVariable} from './teacher-queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 
@@ -30,21 +31,7 @@ const subjectOnCourseQuery = `
           }
       }`;
 
-function checkCompDate(date) {
-  let compDate = new Date(date);
-  let day = compDate.getDate();
-  let month = compDate.getMonth()+1;
-  let strCompDate = "";
-  if (day < 10) {
-    strCompDate += "0";
-  }
-  strCompDate += day +".";
-  if (month < 10){
-    strCompDate += "0";
-  }
-  strCompDate += month;
-  return strCompDate;
-}
+
 
 let teacher;
 let title=document.getElementsByTagName("title")[0];
@@ -75,8 +62,8 @@ axios.post(url, {query: subjectOnCourseQuery})
         }
         for(let item of arrTasks) {
           tasks.innerHTML +=`<tr> <td class="comp-date"> ${checkCompDate(item.completionDate)} </td> 
-        <td class="task"> ${item.task} </td> <td class="button"> <a href="changeTaskList.html?a=edit+${item.id}"> Edit </a></td> <td class="button"> 
-        <a href="changeTaskList.html?a=delete+${item.id}" target="_blank">Delete</a> </td> </tr>`;
+        <td class="task"> ${item.task} </td> <td class="button"> <a href="changeTaskList.html?t=${lastName}&a=edit&id=${item.id}"> Edit </a></td> <td class="button"> 
+        <a href="changeTaskList.html?t=${lastName}&a=delete+&id=${item.id}" target="_blank">Delete</a> </td> </tr>`;
         }
       }
       else{

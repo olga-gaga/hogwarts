@@ -1,15 +1,6 @@
 import {styleLoad} from './style-loading.js';
 import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-const artyom = new Artyom();
-
-artyom.initialize({
-    continuous:true,
-    lang:"ru-RU",
-    obeyKeyword: "слушай",
-    listen:true,
-    debug:true
-});
 
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
@@ -66,7 +57,7 @@ axios.post(url, {query: studentQuery})
         let compDateB = new Date(b.task.completionDate);
         let time = 1000 * 3600 * 24;
         return Math.ceil((compDateA.getTime() - Date.now()) / time) - Math.ceil((compDateB.getTime() - Date.now()) / time);;
-    })
+    });
     for (let item of arrTasks){
         if (item.completion !== true){
           noTasks = false;
@@ -81,13 +72,3 @@ axios.post(url, {query: studentQuery})
       document.getElementById("completion-date").innerHTML += `<span>Заданий, у которых приближается срок сдачи, нет! Поздравляем!</span>`
     }
 })	
-
-let commandHello = {
-    indexes:["привет"], // These spoken words will trigger the execution of the command
-    action:function(){ // Action to be executed when a index match with spoken word
-        console.log("Hey buddy ! How are you today?");
-        artyom.say("Hey buddy ! How are you today?");
-    }
-};
-
-artyom.addCommands(commandHello); // Add the command with addCommands method. Now

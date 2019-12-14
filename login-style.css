@@ -3,6 +3,8 @@ body{
 	margin:0;
 	font-family: "Monotype Corsiva";
 	font-size: 1.5em;
+	display:flex;
+	flex-direction:row-reverse;
 }
 
 .close {
@@ -12,7 +14,7 @@ body{
 .wizard {
 	background:url("owl.jpg");
 	height:auto;
-	background-size: 100%;
+	background-size: cover;
 }
 
 .muggle {
@@ -27,9 +29,18 @@ body{
 	background-color:#b7a28ca3;
 	width: 20%;
 	margin-top:3%;
-	margin-left:77%;
+	margin-right: 3%;
 	border-radius: 10px; 
+}
 
+#alohomora {
+	height:22em;
+	background-color: rgb(0, 0, 0, 0);
+	border-color: rgb(0, 0, 0, 0);
+	margin-top: 18%;
+	margin-left: 50%;
+	margin-right:35%;
+	width:15%;
 }
 
 img{
@@ -40,7 +51,7 @@ input {
 	border: 1px solid #d1d5da;
 }
 
-.signIn label, .signIn input, .signIn button {
+.profile-data, #login, #password, button {
 	width:95%;
 	margin: 2%;
 	min-height: 7%;
@@ -48,6 +59,17 @@ input {
     font-size: 1.5em;
     border-radius: 10px;
     box-sizing: border-box;
+}
+
+.position {
+	width:100%;
+	margin:5%;
+	margin-top:0;
+}
+.position label {
+	font-size: 1.3em;
+	width:45%;
+	margin-right:5%;
 }
 
 #error {
@@ -69,3 +91,15 @@ input {
 	box-shadow: 0 0 7px 0 #665b4a;
 	background-color:#9a8875d9;
 }
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  	.signIn {
+  		width:70%;
+  		margin-top: 10%;
+  		margin-left:14%;
+  		margin-right:14%;
+  		
+  	}
+  }

@@ -12,9 +12,15 @@
 		<div class="signIn close">
 			<img src="label.png"/>
 			<form>
-				<label for="login">Your name</label>
+				<div class="position">
+					<input type="radio" name="position" id="student" checked="true"/>
+					<label  for="student"> Student</label>
+			        <input type="radio" name="position" id="teacher"/>
+			        <label for="teacher"> Teacher </label>
+		        </div>
+				<label class="profile-data" for="login">Your name</label>
 				<input type="text" id="login" />
-				<label for="password">Your password</label>
+				<label class="profile-data" for="password">Your password</label>
 				<input type="password" id="password"/>
 				<p id="error" class="close">Неверный логин или пароль. Повторите попытку.</p>
 				<button type="submit">Sign in</button>

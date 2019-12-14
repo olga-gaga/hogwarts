@@ -9,66 +9,89 @@ artyom.initialize({
     listen:true,
     debug:true
 });
+
 document.forms[0].onsubmit = function(e) {
 	e.preventDefault();
 }
+
 let body = document.body;
+let alohomora = document.getElementById("alohomora");
+alohomora.onclick = doAlohomora;
+
+function doAlohomora() {
+  document.getElementById("keepOut").innerHTML = "Добро пожаловать в школу чародейства и волшебства \"Hogwarts\""
+  body.classList.toggle("muggle");
+  alohomora.classList.toggle("close");
+  body.getElementsByClassName("signIn")[0].classList.toggle("close");
+}
 
 let commandHello = {
     indexes:["Аллаха море", "Алоха", "ало ало", "море", "ало", "аллах", "аллах отбора", "аллаха мора", "аллаха мара", "алаха мара", "алохомора", "алахамора", "алахамара"], 
-    action:function(){ 
-        document.getElementById("keepOut").innerHTML = "Добро пожаловать в школу чародейства и волшебства \"Hogwarts\""
-		body.classList.toggle("muggle");
-		body.getElementsByClassName("signIn")[0].classList.toggle("close");
-    }
+    action: doAlohomora,
 };
 
-document.getElementById("alohomora").onclick = function() {
-	document.getElementById("keepOut").innerHTML = "Добро пожаловать в школу чародейства и волшебства \"Hogwarts\""
-	body.classList.toggle("muggle");
-	body.getElementsByClassName("signIn")[0].classList.toggle("close");
+function logInCookie (wizard, wizardObj){
+    document.cookie = encodeURIComponent('firstName') + '=' + encodeURIComponent(wizardObj.firstName);
+    document.cookie = encodeURIComponent('lastName') + '=' + encodeURIComponent(wizardObj.lastName);
+    if (wizard == "student"){
+      document.cookie = encodeURIComponent('house') + '=' + encodeURIComponent(wizardObj.house.houseName);
+    }
+    window.location.replace(`${wizard}.html?st=${wizardObj.lastName}`);
 }
-
-let studentQuery = `
-      {
-        students (where:{}){
-          firstName
-          lastName         
-          house {
-            houseName
-          }
-       }
-      }`;
 
 let form = document.forms[0];
 form.onsubmit = logIn;
 let names;
-function logIn() {
-  let password = form.elements[1].value;
-  let name = form.elements[0].value;
-  names = name.split(" ");
-  if (students.indexOf(names[0]) > -1) {
-    document.cookie = encodeURIComponent(firstName) + '=' + encodeURIComponent(student.firstName);
-      document.cookie = encodeURIComponent(lastName) + '=' + encodeURIComponent(student.lastName);
-      document.cookie = encodeURIComponent(house) + '=' + encodeURIComponent(student.house.houseName);
-      window.location.replace(`student.html/st=${student.lastName}`);
-  }  
+function logIn(e) {
+    e.preventDefault();
+    let studentBool = form.elements[0].checked;
+    let password = form.elements[3].value;
+    let name = form.elements[2].value;
+    names = name.split(" ");
+    if (studentBool) {
+      let studentQuery = `
+        {
+          students (where:{lastName:"${names[1]}", firstName: "${names[0]}"}){
+            firstName
+            lastName         
+            house {
+              houseName
+            }
+         }
+        }`;
+    let student;
+    axios.post(url, {query: studentQuery})
+    .then(response => {
+        student = response.data.data.students[0];
+        if(!student) {
+          document.getElementById("error").classList.toggle("close");
+        }
+        else{
+          logInCookie("student", student)
+        }   
+    })
+    } 
+    else {
+      let teacherQuery = `
+        {
+          teachers (where:{lastName:"${names[1]}", firstName: "${names[0]}"}){
+            firstName
+            lastName
+          }         
+        }`;
+    let teacher;
+    axios.post(url, {query: teacherQuery})
+    .then(response => {
+        teacher = response.data.data.teachers[0];
+        if(!teacher) {
+          document.getElementById("error").classList.toggle("close");
+        }
+        else{
+          logInCookie("teacher", teacher)
+        }   
+    })
+    }
+    
 }
-/*
-let students;
-axios.post(url, {query: studentQuery})
-.then(response => {
-  students = response.data.data.students[0];
-  console.log(response.data);
-  
-})*/
-
-let students;
-axios.post(url, {query: studentQuery})
-.then(response => {
-  students = response.data.data.students;
-  console.log(response.data);
-  
-})
 
 artyom.addCommands(commandHello); 

@@ -21,6 +21,7 @@ const teacherQuery = `
 const subjectOnCourseQuery = `
       {
         subjectOnCourses (where:{id: "${informArr[1]}"}){
+            id
             subjectName
             courseName
             tasks {
@@ -49,6 +50,7 @@ axios.post(url, {query: subjectOnCourseQuery})
   subjOnCourse = response.data.data.subjectOnCourses[0];
   document.getElementById("subject").innerHTML = subjOnCourse.subjectName +  " на " +subjOnCourse.courseName + " курсе";
   title.innerHTML += " - " + subjOnCourse.subjectName + " на " + subjOnCourse.courseName + " курсе";
+  document.getElementById("add").href += `&t=${lastName}&id=${subjOnCourse.id}`;
   if(subjOnCourse.tasks.length > 0) {
         let arrTasks = subjOnCourse.tasks;
         if(arrTasks > 1) {

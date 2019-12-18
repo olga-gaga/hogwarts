@@ -5,7 +5,7 @@ const artyom = new Artyom();
 artyom.initialize({
     continuous:true,
     lang:"ru-RU",
-    obeyKeyword: "аллаха мора",
+    obeyKeyword: "алохомора",
     listen:true,
     debug:true
 });
@@ -26,7 +26,7 @@ function doAlohomora() {
 }
 
 let commandHello = {
-    indexes:["Аллаха море", "Алоха", "ало ало", "море", "ало", "аллах", "аллах отбора", "аллаха мора", "аллаха мара", "алаха мара", "алохомора", "алахамора", "алахамара"], 
+    indexes:["Аллаха море", "аллах отбора", "аллаха мора", "аллаха мара", "алаха мара", "алохомора", "алахамора", "алахамара"], 
     action: doAlohomora,
 };
 

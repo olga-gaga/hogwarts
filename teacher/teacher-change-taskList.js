@@ -34,6 +34,13 @@ const editDeleteQuery = `
         }
       }`;
 
+const subjectCourseQuery = `{
+	subjectOnCourses(where:{${id}}) {
+		subjectName
+		courseName
+	}
+}`;
+
 let teacher;
 let title=document.getElementsByTagName("title")[0];
 axios.post(url, {query: teacherQuery})
@@ -44,6 +51,31 @@ axios.post(url, {query: teacherQuery})
 });
 
 
+let addSub = document.getElementById("addSub");
+addSub.onclick = function (){
+	let newDate = document.querySelector(".add .date").value;
+	let newTask = document.querySelector(".add .task").value; 
+	const addQuery = `
+		mutation createTask{
+	 		createTask(
+		    	data:{
+		    		completionDate:"${newDate}"
+		    		task:"${newTask}"
+        			subjectOnCourse:{connect:{id: "${id}"}}
+	    	}) 
+	    	{
+		    	id
+	  		}
+		}`
+
+	axios.post(url, {query: addQuery})
+		.then(response => {
+			let addTask = response.data.data.createTask;
+			if (addTask) {
+				alert("Задание успешно добавлено!");
+			}
+		})
+}
 let editSub = document.getElementById("editSub");
 editSub.onclick = function (){
 	let newDate = document.querySelector(".edit .date").value;
@@ -71,18 +103,23 @@ editSub.onclick = function (){
 		});
 
 }
+
 let task;
 switch(action){
 	case "add":
-
+		document.getElementsByClassName("add")[0].classList.toggle("close");
+		axios.post(url, {query: subjectCourseQuery})
+		.then(response => {
+		  subjCourse = response.data.data.subjectOnCourses[0];
+		  title += " - " +subjCourse.subjectName + " на " +subjCourse.courseName + " курсе";	
+		});
 		break;
 	case "edit":
+		document.getElementsByClassName("edit")[0].classList.toggle("close");
 		axios.post(url, {query: editDeleteQuery})
 		.then(response => {
-		  document.getElementsByClassName("edit")[0].classList.toggle("close");
 		  task = response.data.data.tasks[0];
-		  console.log(task);
-		  title += " " +task.subjectOnCourse.subjectName + +  " на " + task.subjectOnCourse.courseName + " курсе";
+		  title += " " +task.subjectOnCourse.subjectName + " на " + task.subjectOnCourse.courseName + " курсе";
 		  document.getElementById("subject").innerHTML = task.subjectOnCourse.subjectName +  " на " + task.subjectOnCourse.courseName + " курсе";
 		  document.getElementsByTagName("title").innerHTML = "Edit task";
 		  let compDate = new Date (task.completionDate);

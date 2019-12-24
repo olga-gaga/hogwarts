@@ -12,7 +12,7 @@ body{
 }
 
 .wizard {
-	background:url("owl.jpg");
+	background:url("images/owl.jpg");
 	height:auto;
 	background-size: cover;
 }
@@ -20,7 +20,7 @@ body{
 .muggle {
 	width:100%;
 	height:auto;
-	background:url("руины100.jpg");
+	background:url("images/руины100.jpg");
 	background-size: 100%;
 	
 }

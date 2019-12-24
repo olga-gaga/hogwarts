@@ -1,5 +1,4 @@
 import {createTable} from './style-loading.js';
-//import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 
 const teachersQuery = `
@@ -12,9 +11,6 @@ const teachersQuery = `
           }
         }
       }`;
-
-
-
 
 let teachers;
 axios.post(url, {query: teachersQuery})

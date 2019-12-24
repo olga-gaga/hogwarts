@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<title></title>
+		<title id="keepOut">Danger! Keep out! </title>
 		<meta charset = "utf-8"/>
-		<link rel="stylesheet" href="general-style.css"/>
-		<link rel="stylesheet" href="great-hall-style.css"/>
-
+		<link rel="stylesheet" href="css/general-style.css"/>
+		<link rel="stylesheet" href="css/login-style.css"/>
+		<script src="js/artyom.window.min.js"> </script>
 	</head>
-	<body class="GreatHall">
-		<div id="main-page" class="Hogwarts">
-			<h1>Hogwarts School of Witchcraft and Wizardry</h1>
-			<div id="article">
-				<span>Школа Чародейства и Волшебства "Hogwarts"</span> - лучшее учебное заведение для юных волшебников и волшебниц.
-				<br/><br/>
-				Школа "Hogwarts" была основана около 10 века нашей эры четырьмя величайшими колдунами и колдуньями всех времён - <a href="house1.html">Годриком Гриффиндором</a>, <a href="house1.html">Салазаром Слизерином</a>, <a href="house1.html">Ровеной Рейвенклав</a> и <a href="house1.html">Хельгой Хаффлпафф</a>.
-
-			</div>
-			<div class="img">
-
-				<img src="https://vignette.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png/revision/latest?cb=20110806202805"/>
-			</div>
-
-			<a href="houses.html" class="sections" target="_blank"> <h3> Houses </h3> </a>
-			<a href="teachers-list.html" class="sections" target="_blank"> <h3> Teacher </h3> </a>
-			<a href="students-list.html" class="sections" target="_blank"> <h3> Students </h3> </a>
-
+	<body class="wizard muggle">
+		<input type="submit" id="alohomora" value="Alohomora"/>
+		<div class="signIn close">
+			<img src="css/images/label.png"/>
+			<form>
+				<div class="position">
+					<input type="radio" name="position" id="student" checked="true"/>
+					<label  for="student"> Student</label>
+			        <input type="radio" name="position" id="teacher"/>
+			        <label for="teacher"> Teacher </label>
+		        </div>
+				<label class="profile-data" for="login">Your name</label>
+				<input type="text" id="login" />
+				<label class="profile-data" for="password">Your password</label>
+				<input type="password" id="password"/>
+				<p id="error" class="close">Неверный логин или пароль. Повторите попытку.</p>
+				<button type="submit">Sign in</button>
+				
+			</form>
 		</div>
-		<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="module" src="teacher-script.js"></script> -->
-
+	
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/login-script.js"></script>
+</body>
 </html>

@@ -3,49 +3,45 @@
 	<head>
 		<title> </title>
 		<meta charset = "utf-8"/>
-		<link rel="stylesheet" href="general-style.css"/>
-		<link rel="stylesheet" href="all-houses-style.css"/>
+		<link rel="stylesheet" href="css/general-style.css"/>
+		<link rel="stylesheet" href="css/all-houses-style.css"/>
 
 	</head>
 	<body class="GreatHall">
 		<div id="main-page" class="Hogwarts">
 			<div id="titles"> 
-				<h1><a href="index.html">Hogwarts School of Witchcraft and Wizardry </a></h1>
+				<h1><a href="hogwarts.html">Hogwarts School of Witchcraft and Wizardry </a></h1>
 			</div>
 			<form> 
 				<h2 data-toggle="TheHouseCup" class="toggleH2">The House Cup</h2>
 				<h2 data-toggle="QuidditchTournament" class="">Quidditch tournament</h2>
 			</form>
-			
-			<div class="TheHouseCup">
-				<div class="flags">
-					<a href="house.html?h=Ravenclaw" target="_blank"> <img src="ravenclaw.png"/></a>
-					<a href="house.html?h=Gryffindor" target="_blank"><img src="gryffindor.png"/></a>
-					<a href="house.html?h=Slytherin" target="_blank"><img src="slytherin.png"/></a>
-					<a href="house.html?h=Hufflepuff" target="_blank"><img src="hufflepuff.png"/></a>
-				</div>
-				
-				<br/>
-				<div id="TheHouseCupRating" >
-						<canvas id="canvas"> </canvas>
-				</div>
-				<div>
-					
+			<div>
+				<div class="TheHouseCup">
+					<div class="column">
+						<div class="flags">
+							<a href="house.html?h=Ravenclaw" target="_blank"> <img src="css/images/ravenclaw.png"/></a>
+							<a href="house.html?h=Gryffindor" target="_blank"><img src="css/images/gryffindor.png"/></a>
+							<a href="house.html?h=Slytherin" target="_blank"><img src="css/images/slytherin.png"/></a>
+							<a href="house.html?h=Hufflepuff" target="_blank"><img src="css/images/hufflepuff.png"/></a>
+						</div>
+						
+						<br/>
+						<div id="TheHouseCupRating" >
+								<canvas id="canvas"> </canvas>
+						</div>
+					</div>
+					<div class="article">
+						<article> <span> Кубок Хогвартса (The House Cup) </span> — ежегодная награда, вручаемая факультету, набравшему наибольшее количество очков за весь год. Вручение Кубка обычно проводится в конце учебного года во время выпуска. 
+
+						Огромные заколдованные песочные часы в холле следят за Очками Факультетов. Песочные часы наполнены разными драгоценными камнями — у <a href="house.html?h=Gryffindor">Гриффиндора </a> рубины, у <a href="house.html?h=Ravenclaw">Рэйвенклав</a> сапфиры, у <a href="house.html?h=Slytherin">Слизерина</a> изумруды и у <a href="house.html?h=Hufflepuff">Хаффлпафф</a> алмазы.</article>
+					</div>
 				</div>
 			</div>
 	
 			<div class="QuidditchTournament close">
 				<table id="books"> 
-					<!--<thead> 
-						<!--<caption> Course books </caption>
-						<tr> 
-								<th class="house2 "></th>
-								<th class="house2 gryffindor">Gryffindor</th>
-								<th class="house2 slytherin">Slytherin</th>
-								<th class="house2 ravenclaw">Ravenclaw</th>
-								<th class="house2 hufflepuff">Hufflepuff</th>
-						</tr>
-					</thead>-->
+					
 					<tbody id="add-books">
 						<tr> 
 								<td class="house2 "></tdtd>
@@ -65,6 +61,6 @@
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>	
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="module" src="all-houses-script.js"></script> 
+		<script type="module" src="js/all-houses-script.js"></script> 
 
 </html>

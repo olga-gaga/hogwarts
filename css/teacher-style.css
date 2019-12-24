@@ -17,7 +17,6 @@
 	flex-direction: column;
 }
 
-
 #profile-name {
 	width:100%;
 	font-family: "Pristina";
@@ -37,37 +36,6 @@
 	border-radius: 10px;
 	padding:2%;
 	margin-top:0;
-}
-
-#completion-date h3{
-	margin: 0;
-	font-size:1.51em;
-}
-
-#completion-date ul {
-	font-size:1em;
-	margin:0;
-	list-style-type:square;
-}
-#task-list span{
-	font-weight: bold;
-}
-
-#completion-date>span {
-	width:100%;
-	text-align: center;
-	color:#969595;
-}
-
-.sections{
-	margin: 1%;
-	width: 30%;
-	background-color:#fff;
-	font-size:2.3em;
-	font-style: bold;
-	border-radius: 10px;
-	text-align: center;
-	text-shadow: 2px 2px 2px #6a6538;
 }
 
 @media only screen 

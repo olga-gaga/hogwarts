@@ -6,40 +6,32 @@ let lastName = getQueryVariable('st');
 const studentQuery = `
       {
         students (where:{lastName:"${lastName}"}){
-          firstName
-          lastName
           subjectOnCourses {
-            tasks{
-                completionDate
-              }
-            subject{
-              subjectName
-            }
+            subjectName
             courseBooks{
                 title
                 author
             }
           }
-          house {
-            houseName
-            backgroundImg {
+          house{
+            backgroundImg{
               url
             }
           }
-       }
+        }
       }`;
+styleLoad(1, 1);
 let student;
 axios.post(url, {query: studentQuery})
 .then(response => {
     student = response.data.data.students[0];
-    console.log(student);
-    styleLoad(student, 1, 2);    
+    document.body.style.background = "url(" + student.house.backgroundImg.url + ")";    
     let tbody = document.getElementById("add-books");
    for (let subjOnCourse of student.subjectOnCourses) {
      for(let i = 0; i < subjOnCourse.courseBooks.length; i++){
         let itemBook = subjOnCourse.courseBooks[i];        
         if (i === 0) { 
-          tbody.innerHTML +=`<tr><td rowspan="${subjOnCourse.courseBooks.length}"> ${subjOnCourse.subject.subjectName} </td>
+          tbody.innerHTML +=`<tr><td rowspan="${subjOnCourse.courseBooks.length}"> ${subjOnCourse.subjectName} </td>
 <td> ${itemBook.title} </td><td> ${itemBook.author} </td> </tr>`;
         } 
         else {

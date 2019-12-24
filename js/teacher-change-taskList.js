@@ -1,5 +1,5 @@
-import {getQueryVariable} from './teacher-queryVarieble.js';
-import {styleLoad} from './teacher-style-loading.js';
+import {getQueryVariable} from './queryVarieble.js';
+import {styleLoad, checkMonthDay} from './style-loading.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 
 document.forms[0].onsubmit = function(e) {
@@ -7,19 +7,6 @@ document.forms[0].onsubmit = function(e) {
 }
 let action = getQueryVariable('a');
 let id = getQueryVariable('id');
-let lastName = getQueryVariable('t'); 
-const teacherQuery = `
-      {
-        teachers (where:{lastName: "${lastName}"}){
-          firstName
-          lastName
-          subjectOnCourses{
-            id
-            subjectName
-            courseName
-          }
-       }
-      }`;
 
 const editDeleteQuery = `
       {
@@ -40,17 +27,7 @@ const subjectCourseQuery = `{
 		courseName
 	}
 }`;
-
-let teacher;
-let title=document.getElementsByTagName("title")[0];
-axios.post(url, {query: teacherQuery})
-.then(response => {
-  teacher = response.data.data.teachers[0];
-  styleLoad(teacher, 1, 1);
-  title.innerHTML = teacher.firstName + " "+ teacher.lastName;
-});
-
-
+styleLoad(true, false);
 let addSub = document.getElementById("addSub");
 addSub.onclick = function (){
 	let newDate = document.querySelector(".add .date").value;
@@ -97,7 +74,7 @@ editSub.onclick = function (){
 		.then(response => {
 		  	let updateTask = response.data.data.updateTask; 
 		  	if (updateTask) {
-		  		alert("Изменение данных произведено успешно!");
+		  		alert("Изменение задания произведено успешно!");
 		 	}
 	
 		});
@@ -119,13 +96,11 @@ switch(action){
 		axios.post(url, {query: editDeleteQuery})
 		.then(response => {
 		  task = response.data.data.tasks[0];
-		  title += " " +task.subjectOnCourse.subjectName + " на " + task.subjectOnCourse.courseName + " курсе";
+		  document.getElementsByTagName("title")[0].innerHTML += " " +task.subjectOnCourse.subjectName + " на " + task.subjectOnCourse.courseName + " курсе";
 		  document.getElementById("subject").innerHTML = task.subjectOnCourse.subjectName +  " на " + task.subjectOnCourse.courseName + " курсе";
-		  document.getElementsByTagName("title").innerHTML = "Edit task";
 		  let compDate = new Date (task.completionDate);
-		  document.getElementById("dateElEdit").value = compDate.getFullYear() + "-" + (compDate.getMonth()+1)+"-" + compDate.getDate();;
+		  document.getElementById("dateElEdit").value = compDate.getFullYear() + "-" + checkMonthDay(compDate.getMonth()+1)+"-" + checkMonthDay(compDate.getDate());
 		  document.getElementById("taskElEdit").value = task.task;
-	
 		});
 		break;
 	case "delete": {
@@ -133,21 +108,3 @@ switch(action){
 	}
 }
 
-//document.getElementById("dateElEdit").onchange = (value => console.log(value));
-
-/*
-mutation createTask{
-	 		createTask(
-	    	data:{
-	    	completionDate:"25-12-2019"
-	    	task:"2 свитка о Дыбоволосом зелье"
-        subjectOnCourse:{connect:{id:"ck0rozwnua4os0b0454jbxqim"
-}}
-        
-	    }) 
-	    {
-		    id
-		    task
-		    completionDate
-	  }
-}*/

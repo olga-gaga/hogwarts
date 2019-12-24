@@ -1,9 +1,6 @@
 body{
 	width:100%;
 	margin:0;
-	1background:url("great-hall.jpg");
-	background-size: 100%;
-	color:#000;
 }
 
 #main-page{
@@ -11,31 +8,13 @@ body{
 	flex-wrap:wrap;
 	justify-content: space-between;
 	font-family: "Monotype Corsiva";
-	margin:8%;
+	margin:6%;
 	padding:4%;
 	border-radius: 10px;
 	height:auto;
 }
 
 #titles {
-	width:100%;
-}
-
-#article {
-	width:65%;
-	font-size: 2em;
-}
-
-#article a, #article span{
-	font-weight:bold;
-}
-
-.img {
-	width:30%;
-	text-align:right;
-}
-
-img{
 	width:100%;
 }
 
@@ -56,14 +35,16 @@ h2{
 	font-size: 2.5em;
 }
 
-.sections{
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+
+a:visited {
 	color:inherit;
-	margin: 1%;
-	width: 30%;
-	background-color:#fff;
-	font-size:2.3em;
-	font-style: bold;
-	border-radius: 10px;
-	text-align: center;
-	text-shadow: 2px 2px 2px #6a6538;
+}
+
+.close {
+	display: none;
 }

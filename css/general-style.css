@@ -1,6 +1,7 @@
 body{
 	width:100%;
 	margin:0;
+	background-size: cover;
 }
 
 #main-page{
@@ -8,7 +9,7 @@ body{
 	flex-wrap:wrap;
 	justify-content: space-between;
 	font-family: "Monotype Corsiva";
-	margin:6%;
+	margin:7%;
 	padding:4%;
 	border-radius: 10px;
 	height:auto;
@@ -19,7 +20,8 @@ body{
 }
 
 .GreatHall{
-	background: url("newGreatHall.png");
+	background: url("images/newGreatHall2.png");
+	background-size: cover;
 }
 
 .Gryffindor {
@@ -46,6 +48,17 @@ body{
 	border: 30px solid #FFD700;
 }
 
+.teacher {
+	color: #000;
+	background-color:#95663e;
+	border: 30px solid #95663e;
+}
+
+.teacher-body{
+	background:url("images/fon2.jpg");
+	background-size: 100%;
+}
+
 .Hogwarts{
 	color: #000;
 	background-color: #e0c774;
@@ -58,7 +71,6 @@ h1, h2 {
 	font-family: "Pristina", "Monotype Corsiva";
 	text-align: center;
 	margin:0;
-
 }
 
 h1 {
@@ -77,6 +89,17 @@ a {
 
 a:visited {
 	color:inherit;
+}
+
+.sections{
+	margin: 1%;
+	width: 30%;
+	background-color:#fff;
+	font-size:2.3em;
+	font-style: bold;
+	border-radius: 10px;
+	text-align: center;
+	text-shadow: 2px 2px 2px #6a6538;
 }
 
 .close {

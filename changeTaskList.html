@@ -3,11 +3,11 @@
 	<head>
 		<title></title>
 		<meta charset = "utf-8"/>
-		<link rel="stylesheet" href="teacher-general-style.css"/>
-		<link rel="stylesheet" href="change-task-list-style.css"/>
+		<link rel="stylesheet" href="css/general-style.css"/>
+		<link rel="stylesheet" href="css/change-task-list-style.css"/>
 
 	</head>
-	<body>
+	<body class="teacher-body">
 		<div id="main-page" class="teacher">
 			<div id="titles">
 				<h1><a id="profile-name" href="student.html"> </a></h1>
@@ -15,7 +15,7 @@
 				<h3 id="subject"> </h3>
 			</div>
 			<form class="">
-				<div class="add">
+				<div class="add close">
 					<label for="dateEl">Completion date</label>
 					<input id="dateElAdd" class="date" type="date"/>
 					<label for="dateElAdd">Task</label>
@@ -38,10 +38,9 @@
 							
 						</tbody>
 				</div>
-				<!--<input id="submit" type="submit"/>-->
 			</form>
 		</div>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="module" src="teacher-change-taskList.js"></script>
+		<script type="module" src="js/teacher-change-taskList.js"></script>
 	</body>
 </html>

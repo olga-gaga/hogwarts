@@ -1,5 +1,4 @@
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-
 const artyom = new Artyom();
 
 artyom.initialize({
@@ -31,12 +30,16 @@ let commandHello = {
 };
 
 function logInCookie (wizard, wizardObj){
+    document.cookie = encodeURIComponent('position') + '=' + encodeURIComponent(wizard);
     document.cookie = encodeURIComponent('firstName') + '=' + encodeURIComponent(wizardObj.firstName);
     document.cookie = encodeURIComponent('lastName') + '=' + encodeURIComponent(wizardObj.lastName);
     if (wizard == "student"){
       document.cookie = encodeURIComponent('house') + '=' + encodeURIComponent(wizardObj.house.houseName);
+      window.location.replace(`${wizard}.html?st=${wizardObj.lastName}`);
     }
-    window.location.replace(`${wizard}.html?st=${wizardObj.lastName}`);
+    else {
+      window.location.replace(`${wizard}.html?t=${wizardObj.lastName}`);
+    }    
 }
 
 let form = document.forms[0];
@@ -53,9 +56,15 @@ function logIn(e) {
         {
           students (where:{lastName:"${names[1]}", firstName: "${names[0]}"}){
             firstName
-            lastName         
+            lastName
+            img {
+              url
+            }         
             house {
               houseName
+              backgroundImg{
+                url
+              }
             }
          }
         }`;

@@ -22,25 +22,7 @@ const housesQuery = `{
   }
 }`;
 
-//let student;
 let house;
-/*
-axios.post(url, {query: studentQuery})
-.then(response => {
-    student = response.data.data.students[0];
-    console.log(student);
-    if (!student) {
-      window.location.replace('error404.html');
-    }
-    styleLoad(student, 0, 1);
-    document.getElementById("img").innerHTML += `<img id="founder-photo" src="${student.house.founderImg.url}"/> `;
-    document.getElementById("houseName").innerHTML = student.house.houseName;
-    document.getElementById("founder").nextElementSibling.innerHTML = student.house.founderName;
-    document.getElementById("element").nextElementSibling.innerHTML = student.house.element;
-    document.getElementById("animal").nextElementSibling.innerHTML = student.house.animal;
-    document.getElementById("colour").nextElementSibling.innerHTML = student.house.colours;
-});	
-*/
 axios.post(url, {query: housesQuery})
 .then(response => {
     house = response.data.data.houses[0];

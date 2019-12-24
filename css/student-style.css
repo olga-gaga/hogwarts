@@ -38,27 +38,26 @@
 	padding:2%;
 	margin-top:0;
 }
-.sections{
-	1color:#06153c;
-	margin: 1%;
-	width: 30%;
-	background-color:#fff;
-	font-size:2.3em;
-	font-style: bold;
-	border-radius: 10px;
+
+#completion-date h3{
+	margin: 0;
+	font-size:1.51em;
+}
+
+#completion-date ul {
+	font-size:1em;
+	margin:0;
+	list-style-type:square;
+}
+#task-list span{
+	font-weight: bold;
+}
+
+#completion-date>span {
+	width:100%;
 	text-align: center;
-	text-shadow: 2px 2px 2px #6a6538;
+	color:#969595;
 }
-a {
-	cursor: pointer;
-	text-decoration: none;
-	color: inherit;
-}
-
-a:visited {
-	color:inherit;
-}
-
 
 @media only screen 
   and (min-device-width: 320px) 

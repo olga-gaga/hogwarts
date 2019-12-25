@@ -1,6 +1,5 @@
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
 const artyom = new Artyom();
-
 artyom.initialize({
     continuous:true,
     lang:"ru-RU",
@@ -8,27 +7,22 @@ artyom.initialize({
     listen:true,
     debug:true
 });
-
 document.forms[0].onsubmit = function(e) {
 	e.preventDefault();
 }
-
 let body = document.body;
 let alohomora = document.getElementById("alohomora");
 alohomora.onclick = doAlohomora;
-
 function doAlohomora() {
   document.getElementById("keepOut").innerHTML = "Добро пожаловать в школу чародейства и волшебства \"Hogwarts\""
-  body.classList.toggle("muggle");
-  alohomora.classList.toggle("close");
-  body.getElementsByClassName("signIn")[0].classList.toggle("close");
+  body.classList.remove("muggle");
+  alohomora.classList.add("close");
+  body.getElementsByClassName("signIn")[0].classList.remove("close");
 }
-
 let commandHello = {
     indexes:["Аллаха море", "аллах отбора", "аллаха мора", "аллаха мара", "алаха мара", "алохомора", "алахамора", "алахамара"], 
     action: doAlohomora,
 };
-
 function logInCookie (wizard, wizardObj){
     document.cookie = encodeURIComponent('position') + '=' + encodeURIComponent(wizard);
     document.cookie = encodeURIComponent('firstName') + '=' + encodeURIComponent(wizardObj.firstName);
@@ -41,7 +35,6 @@ function logInCookie (wizard, wizardObj){
       window.location.replace(`${wizard}.html?t=${wizardObj.lastName}`);
     }    
 }
-
 let form = document.forms[0];
 form.onsubmit = logIn;
 let names;
@@ -73,7 +66,7 @@ function logIn(e) {
     .then(response => {
         student = response.data.data.students[0];
         if(!student) {
-          document.getElementById("error").classList.toggle("close");
+          document.getElementById("error").classList.remove("close");
         }
         else{
           logInCookie("student", student)
@@ -93,7 +86,7 @@ function logIn(e) {
     .then(response => {
         teacher = response.data.data.teachers[0];
         if(!teacher) {
-          document.getElementById("error").classList.toggle("close");
+          document.getElementById("error").classList.remove("close");
         }
         else{
           logInCookie("teacher", teacher)
@@ -102,5 +95,4 @@ function logIn(e) {
     }
     
 }
-
 artyom.addCommands(commandHello); 

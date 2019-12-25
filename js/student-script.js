@@ -1,7 +1,6 @@
 import {styleLoad, sortingArrByDate} from './style-loading.js';
 import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-
 let lastName = getQueryVariable('st'); 
 const studentQuery = `
       {

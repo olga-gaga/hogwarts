@@ -1,6 +1,5 @@
 import {styleLoad, getDataFromCookie} from './style-loading.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-
 let lastName = getDataFromCookie('lastName'); 
 const teacherQuery = `
       {
@@ -10,7 +9,6 @@ const teacherQuery = `
           }
        }
       }`;
-
 let teacher;
 styleLoad(true, false);
 axios.post(url, {query: teacherQuery})

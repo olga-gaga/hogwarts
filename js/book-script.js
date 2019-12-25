@@ -1,8 +1,7 @@
-import {styleLoad} from './style-loading.js';
+import {styleLoad, getDataFromCookie} from './style-loading.js';
 import {getQueryVariable} from './queryVarieble.js';
 const url = 'https://api-euwest.graphcms.com/v1/ck0djr5sr0g7f01d0ayv93gt1/master';
-let lastName = getQueryVariable('st'); 
-
+let lastName = getDataFromCookie('lastName');
 const studentQuery = `
       {
         students (where:{lastName:"${lastName}"}){

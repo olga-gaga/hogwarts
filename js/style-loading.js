@@ -2,7 +2,6 @@ let arrCookie = [];
 for (let item of document.cookie.split("; ")) {
     arrCookie[item.split("=")[0]] = item.split("=")[1];
 }
-
 export function styleLoad(nameBool, houseBool) {
   let mainPage = document.getElementById("main-page");
   let profileName = document.getElementById("profile-name");
@@ -30,11 +29,9 @@ export function styleLoad(nameBool, houseBool) {
   }
   document.getElementsByTagName("title")[0].textContent = document.getElementById("profile-name").textContent + " - " + document.getElementById("position").textContent;
 }
-
 export function getDataFromCookie(data){
   return arrCookie[data];
 }
-
 export function checkCompDate(date) {
   let compDate = new Date(date);
   let day = compDate.getDate();
@@ -50,15 +47,12 @@ export function checkCompDate(date) {
   strCompDate += month;
   return strCompDate;
 }
-
 export function checkMonthDay(date) {
   if (date < 10) {
     return "0" + date;
   }
   return date;
 }
-
-
 export function sortingArrByDate(array) {
   array.sort(
       function (a, b) {
@@ -68,7 +62,6 @@ export function sortingArrByDate(array) {
         return Math.ceil((compDateA.getTime() - Date.now()) / time) - Math.ceil((compDateB.getTime() - Date.now()) / time);;
     });
 }
-
 export function createTable (id, array) {
   let tbody = document.getElementById(id);
      for (let i = 0; i < array.length ; i += 2) {
@@ -87,7 +80,6 @@ export function createTable (id, array) {
           }            
     }
 }
-
 export function toggleH2(e, openElement){
   let selectedEl = e.target.closest("h2");
   if (selectedEl !== openElement ) {

@@ -12,7 +12,9 @@
 			<div id="titles">
 				<h1><a id="profile-name" href="student.html"> </a></h1>
 				<h2 id="position"> teacher of <a href="index.html">Hogwarts</a></h2>
-				<h3 id="subject"> </h3>
+				<h3><a id="subject-course" href="subjOnCourse.html">
+					<span id="subject"> </span> на <span id="course">  </span> курсе </a>
+				</h3>
 			</div>
 			<form class="">
 				<div class="add close">
@@ -30,13 +32,11 @@
 					<button id="editSub">Edit</button>
 				</div>
 				<div class="delete close">
-					<table> 
-						<tbody>
-							<td class="comp-date"> </td> 
-							<td class="task"> </td>
-							<button>Delete</button>
-							
-						</tbody>
+					<span class="text">Completion date</span>
+					<span id="dateElDelete" class="date"> </span>
+					<span class="text">Task</span>
+					<span id="taskElDelete" class="task"> </span>
+					<button id="deleteSub"> Delete </button>
 				</div>
 			</form>
 		</div>

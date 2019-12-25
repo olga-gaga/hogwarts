@@ -1,4 +1,3 @@
-console.log("!!!");
 let myProfile = document.getElementById("my-profile");
 let arrCookie = [];
 for (let item of document.cookie.split("; ")) {

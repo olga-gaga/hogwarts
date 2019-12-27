@@ -125,6 +125,7 @@ deleteSub.onclick = function (){
    				task
   			}
 		}`;
+	axios.post(url, {query: deleteManyEntriesQuery});
 	axios.post(url, {query: deleteQuery})
 		.then(response => {
 		  	let deleteTask = response.data.data.deleteTask; 

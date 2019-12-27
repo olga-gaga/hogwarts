@@ -49,6 +49,8 @@ img{
 
 input {
 	border: 1px solid #d1d5da;
+	font-size: 0.8em;
+	font-family:inherit;
 }
 
 .profile-data, #login, #password, button {
